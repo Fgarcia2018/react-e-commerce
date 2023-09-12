@@ -1,11 +1,11 @@
+import Layout from "../../Components/Layout";
+
 function MyAccount() {
   
     return (
-      <>
-       <div className="bg-sky-700">
-        MyAccount
-       </div>
-      </>
+      <Layout>
+          MyAccount
+      </Layout>
     )
   }
   

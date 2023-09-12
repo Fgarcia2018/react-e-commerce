@@ -1,11 +1,11 @@
+import Layout from "../../Components/Layout"
+
 function MyOrders() {
   
     return (
-      <>
-       <div className="bg-sky-700">
+      <Layout>
         MyOrders
-       </div>
-      </>
+      </Layout>
     )
   }
   
