@@ -5,6 +5,7 @@ import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn';
 import NavBar from '../../Components/NavBar';
+import {ShoppingCartProvider} from "../../Context";
 import './App.css';
 
 const AppRoutes=()=>{
@@ -17,15 +18,15 @@ const AppRoutes=()=>{
   ])
   return routes;
 }
-
 const App=()=> {  
   return (
     <>
-  
-    <BrowserRouter>
-    <AppRoutes></AppRoutes>
-    <NavBar></NavBar>
-    </BrowserRouter>
+      <ShoppingCartProvider>
+          <BrowserRouter>
+            <AppRoutes></AppRoutes>
+            <NavBar></NavBar>
+        </BrowserRouter>
+      </ShoppingCartProvider>    
     </>
   )
 }
