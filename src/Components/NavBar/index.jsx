@@ -71,7 +71,7 @@ const NavBar=()=>{
                 </NavLink>          
             </li>
         </ul>
-        <ul className="flex items-center gap-3">
+        <ul className="flex items-center justify-between gap-3">
             <li className="text-black/60">               
                 andgarcia_24@hotmail.com
             </li>
@@ -102,8 +102,8 @@ const NavBar=()=>{
                     Sign In
                 </NavLink>          
             </li>
-            <li>
-               🛒{context.counter} 
+            <li className="flex gap-2">
+            <img src="../../assets/shoppingCartIcon.svg" alt="shopping-cart" className="w-6 h-6" />            {context.counter} 
             </li>
         </ul>
     </nav>
