@@ -4,12 +4,13 @@ export const ShoppingCartContext=createContext();
 
 export const ShoppingCartProvider=({children})=>{
     // Shopping Cart - Increment Quantity
-    const [counter,setCounter]=useState(0);
-    // Shopping Cart - Summary
-    const[totalShop,setTotalShop]=useState(0);
+    const [counter,setCounter]=useState(0);   
 
      //shopping Cart - Add products to cart
      const [cartProducts,setCartProducts]=useState([]);    
+
+      // Shopping Cart - Order
+    const[order,setOrder]=useState([]);
 
     // Product Detail - Open/Close
     const [isProductDetailOpen,setIsProductDetailOpen]=useState(false);
@@ -44,8 +45,8 @@ export const ShoppingCartProvider=({children})=>{
                 isCheckoutMenuOpen,                
                 openCheckoutMenu,
                 closeCheckoutMenu,
-                totalShop,
-                setTotalShop
+                order,
+                setOrder
             }
         }>
             {children}
