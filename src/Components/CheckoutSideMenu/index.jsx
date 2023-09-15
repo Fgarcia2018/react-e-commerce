@@ -5,8 +5,9 @@ import OrderCard from '../OrderCard';
 const CheckoutSideMenu=()=>{
     const context=useContext(ShoppingCartContext)   
     const handleDelete=(id)=>{
-        const filteredProducts=context.cartProducts.filter(product=>product.id!=id)
-        context.setCartProducts(filteredProducts)
+        const filteredProducts=context.cartProducts.filter(product=>product.id!=id);
+        context.setCartProducts(filteredProducts);
+        context.setCounter(context.counter-1);
     }
     return(
         <aside className={`${context.isCheckoutMenuOpen?'flex':'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded-lg bg-white p-6`}>
