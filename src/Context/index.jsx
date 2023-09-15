@@ -6,6 +6,9 @@ export const ShoppingCartProvider=({children})=>{
     // Shopping Cart - Increment Quantity
     const [counter,setCounter]=useState(0);
 
+     //shopping Cart - Add products to cart
+     const [cartProducts,setCartProducts]=useState([]);    
+
     // Product Detail - Open/Close
     const [isProductDetailOpen,setIsProductDetailOpen]=useState(false);
     const openProductDetail=()=>setIsProductDetailOpen(true);
@@ -13,11 +16,16 @@ export const ShoppingCartProvider=({children})=>{
 
     // Product Detal - Show Product
     const [productToShow,setProductToShow]=useState({
+        id:'',
         images:[],
         title:'',
         description:'',
         price:''});
 
+    // checkout-side-menu - Open/Close
+    const [isCheckoutMenuOpen,setIsCheckoutMenuOpen]=useState(false);
+    const openCheckoutMenu=()=>setIsCheckoutMenuOpen(true);
+    const closeCheckoutMenu=()=>setIsCheckoutMenuOpen(false);    
 
     return(
         <ShoppingCartContext.Provider value={
@@ -28,7 +36,12 @@ export const ShoppingCartProvider=({children})=>{
                 openProductDetail,
                 closeProductDetail,
                 productToShow,
-                setProductToShow
+                setProductToShow,
+                cartProducts,
+                setCartProducts,
+                isCheckoutMenuOpen,                
+                openCheckoutMenu,
+                closeCheckoutMenu
             }
         }>
             {children}

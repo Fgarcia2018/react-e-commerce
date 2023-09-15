@@ -5,9 +5,10 @@ import { ShoppingCartContext } from "../../Context";
 const NavBar=()=>{      
     const IsUnderLine='underline underline-offset-4';
     const context=useContext(ShoppingCartContext)
+
     return(
     <>
-    <nav className='flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0'>
+    <nav className='flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0 bg-white'>
         <ul className="flex items-center gap-3">
             <li className=" font-semibold text-lg">
                 <NavLink
@@ -103,12 +104,16 @@ const NavBar=()=>{
                 </NavLink>          
             </li>
             <li className="flex gap-2">
-            <img src="../../assets/shoppingCartIcon.svg" alt="shopping-cart" className="w-6 h-6" />            {context.counter} 
+            <img  src="../../assets/shoppingCartIcon.svg" alt="shopping-cart" className="w-6 h-6 cursor-pointer"
+             onClick={()=>{context.openCheckoutMenu()}}/>{context.counter} 
             </li>
         </ul>
+          
     </nav>
   
     </>
   )
 }
 export default NavBar
+
+// 
