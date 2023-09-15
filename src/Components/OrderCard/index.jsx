@@ -1,7 +1,3 @@
-// import React from "react";
-// import { useContext } from "react";
-// const context=useContext(ShoppingCartContext);
-
 const OrderCard=props=>{
     const {id,title,imageUrl,price,handleDelete}=props;
   

@@ -5,6 +5,8 @@ export const ShoppingCartContext=createContext();
 export const ShoppingCartProvider=({children})=>{
     // Shopping Cart - Increment Quantity
     const [counter,setCounter]=useState(0);
+    // Shopping Cart - Summary
+    const[totalShop,setTotalShop]=useState(0);
 
      //shopping Cart - Add products to cart
      const [cartProducts,setCartProducts]=useState([]);    
@@ -41,7 +43,9 @@ export const ShoppingCartProvider=({children})=>{
                 setCartProducts,
                 isCheckoutMenuOpen,                
                 openCheckoutMenu,
-                closeCheckoutMenu
+                closeCheckoutMenu,
+                totalShop,
+                setTotalShop
             }
         }>
             {children}
