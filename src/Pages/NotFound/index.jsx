@@ -1,12 +1,11 @@
-function NotFound() {
-  
+import Layout from "../../Components/Layout"
+function NotFound() {  
     return (
-      <>
-       <div className="bg-sky-700">
-        NotFound
-       </div>
-      </>
+      <Layout>
+          <div className="bg-sky-700">
+          Not Found
+        </div>
+      </Layout>
     )
-  }
-  
+  }  
   export default NotFound

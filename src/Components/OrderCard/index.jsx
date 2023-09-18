@@ -1,6 +1,9 @@
 const OrderCard=props=>{
     const {id,title,imageUrl,price,handleDelete}=props;
-  
+    let renderIconDelete
+    if (renderIconDelete){
+        <img onClick={()=>handleDelete(id)} src="../../assets/closeIcon.svg" alt="Delete" className="w-5 h-5 cursor-pointer" />
+    }     
     return(
         <div className="flex justify-between items-center py-2">
             <div className="flex items-center gap-1 ">
@@ -11,8 +14,9 @@ const OrderCard=props=>{
             </div>
             <div className="flex items-center gap-1">
                 <p className="text-lg font-medium">${price}</p>
-                <img onClick={()=>handleDelete(id)} src="../../assets/closeIcon.svg" alt="Delete" className="w-5 h-5 cursor-pointer" />
+                {renderIconDelete}              
             </div>
+          
         </div>
     );
 }
