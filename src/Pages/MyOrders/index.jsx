@@ -4,19 +4,24 @@ import { ShoppingCartContext } from "../../Context"
 import OrdersCard from '../../Components/OrdersCard';
 import { Link } from "react-router-dom";
 
+
 function MyOrders() {
   const context=useContext(ShoppingCartContext);
  
     return (
-      <Layout>       
-        MyOrders
+      <Layout>  
+        <div className="">
+           <h1 className="font-medium text-xl mb-4">  MyOrders</h1>
+        </div>
+
         {
           context.order.map((order,index)=>(
           <Link key={index} to={`/My-order/${index}`}>
-            <OrdersCard
+            <OrdersCard 
               
              totalPrice={order.totalPrice}
              totalProducts={order.totalProducts}/>
+           
            </Link>    
           ))
         }   

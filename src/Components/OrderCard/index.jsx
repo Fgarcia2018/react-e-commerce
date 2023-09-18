@@ -5,8 +5,8 @@ const OrderCard=props=>{
         <img onClick={()=>handleDelete(id)} src="../../assets/closeIcon.svg" alt="Delete" className="w-5 h-5 cursor-pointer" />
     }     
     return(
-        <div className="flex justify-between items-center py-2">
-            <div className="flex items-center gap-1 ">
+        <div className="flex justify-between w-80 items-center py-2">
+            <div className="flex items-center gap-3  ">
                 <figure className="w-20 h-20">
                     <img className="w-full h-full rounded-lg object-cover" src={imageUrl} alt={title} />
                 </figure>
