@@ -21,8 +21,16 @@ export const ShoppingCartProvider=({children})=>{
       },[])
     //   Get Products Search By Title
     const[searchByTitle,setSearchByTitle]=useState(null);
-      console.log(searchByTitle);
 
+    // Filters items
+    const[filteredItems,setFilteredItems]=useState(null);
+
+    const filteredByItems=(items,searchByTitle)=>{
+        return items?.filter(item=>item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+    useEffect(()=>{
+      if (searchByTitle) setFilteredItems(filteredByItems(items,searchByTitle))
+      },[items,searchByTitle])
 
     // Product Detail - Open/Close
     const [isProductDetailOpen,setIsProductDetailOpen]=useState(false);
@@ -62,7 +70,9 @@ export const ShoppingCartProvider=({children})=>{
                 items,
                 setItems,
                 searchByTitle,
-                setSearchByTitle
+                setSearchByTitle,
+                filteredItems,
+                setFilteredItems
             }
         }>
             {children}
