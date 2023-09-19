@@ -22,7 +22,7 @@ const NavBar=()=>{
                  to='/'
                  className={({ isActive, isPending }) =>
                 isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                }onClick={()=>context.setFilteredItems(null)}>
                     All
                 </NavLink>          
             </li>
@@ -30,8 +30,8 @@ const NavBar=()=>{
                 <NavLink
                  to='/clothes'
                  className={({ isActive, isPending }) =>
-                isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                isPending ? "undefined" : isActive ? IsUnderLine : ""                
+                }onClick={()=>context.setFilteredItems(context.otherFilters('Clothes'))}>
                     Clothes
                 </NavLink>          
             </li>
@@ -40,7 +40,7 @@ const NavBar=()=>{
                  to='/electronics'
                  className={({ isActive, isPending }) =>
                 isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                }onClick={()=>context.setFilteredItems(context.otherFilters('Electronics'))}>
                     Electronics
                 </NavLink>          
             </li>
@@ -49,7 +49,7 @@ const NavBar=()=>{
                  to='/furnitures'
                  className={({ isActive, isPending }) =>
                 isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                }onClick={()=>context.setFilteredItems(context.otherFilters('Furniture'))}>
                     Furnitures
                 </NavLink>          
             </li>
@@ -58,7 +58,7 @@ const NavBar=()=>{
                  to='/toys'
                  className={({ isActive, isPending }) =>
                 isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                }onClick={()=>context.setFilteredItems(context.otherFilters('toys'))}>
                     Toys
                 </NavLink>          
             </li>
@@ -67,7 +67,7 @@ const NavBar=()=>{
                  to='/others'
                  className={({ isActive, isPending }) =>
                 isPending ? "undefined" : isActive ? IsUnderLine : ""
-                }>
+                }onClick={()=>context.setFilteredItems(context.otherFilters('Others'))}>
                     Others
                 </NavLink>          
             </li>

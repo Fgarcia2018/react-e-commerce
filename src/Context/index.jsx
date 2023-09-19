@@ -22,15 +22,22 @@ export const ShoppingCartProvider=({children})=>{
     //   Get Products Search By Title
     const[searchByTitle,setSearchByTitle]=useState(null);
 
+    // const [searchByCategory,setSearchByCategory]=useState(null)
+
     // Filters items
     const[filteredItems,setFilteredItems]=useState(null);
 
     const filteredByItems=(items,searchByTitle)=>{
         return items?.filter(item=>item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-    }
-    useEffect(()=>{
+    }   
+
+     useEffect(()=>{
       if (searchByTitle) setFilteredItems(filteredByItems(items,searchByTitle))
       },[items,searchByTitle])
+
+    const  otherFilters=(filterType)=>{ 
+            return items?.filter(item=>item.category.name.toLowerCase().includes(filterType.toLowerCase()))
+    }   
 
     // Product Detail - Open/Close
     const [isProductDetailOpen,setIsProductDetailOpen]=useState(false);
@@ -48,7 +55,10 @@ export const ShoppingCartProvider=({children})=>{
     // checkout-side-menu - Open/Close
     const [isCheckoutMenuOpen,setIsCheckoutMenuOpen]=useState(false);
     const openCheckoutMenu=()=>setIsCheckoutMenuOpen(true);
-    const closeCheckoutMenu=()=>setIsCheckoutMenuOpen(false);    
+    const closeCheckoutMenu=()=>setIsCheckoutMenuOpen(false);   
+    
+        console.log(items);
+        console.log(filteredItems);
 
     return(
         <ShoppingCartContext.Provider value={
@@ -72,7 +82,10 @@ export const ShoppingCartProvider=({children})=>{
                 searchByTitle,
                 setSearchByTitle,
                 filteredItems,
-                setFilteredItems
+                setFilteredItems,
+                // searchByCategory,
+                // setSearchByCategory,
+                otherFilters
             }
         }>
             {children}

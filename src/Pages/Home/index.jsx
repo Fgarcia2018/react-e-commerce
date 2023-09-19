@@ -8,31 +8,51 @@ import { ShoppingCartContext } from "../../Context";
 function Home() {
   const context=useContext(ShoppingCartContext);
   const renderView=()=>{
-    if (context.searchByTitle?.length>0){
-            if (context.filteredItems?.length>0){
-
-              return(
-                context.filteredItems?.map((item)=>(
-                  <Card key={item.id} data={item}>        
-                  </Card>
-                ))
-              )
-          }else{
-            return(
-            <div>We don't have anything </div>
-            )
-          }
+    // if (context.searchByTitle?.length>0){
+    //       if (context.filteredItems?.length>0){
+    //           return(
+    //               context.filteredItems?.map((item)=>(
+    //               <Card key={item.id} data={item}>        
+    //               </Card>
+    //             ))
+    //           )
+    //       }else{
+    //           return(
+    //           <div>We don't have anything </div>
+    //           )
+    //       }
       
-    }else{
+    // }else{
+    //       return(
+    //         context.items?.map((item)=>(
+    //         <Card key={item.id} data={item}>        
+    //         </Card>
+    //         ))
+    //       )
+    // }
+  
+      if (context.filteredItems?.length>0){
           return(
-            
-      context.items?.map((item)=>(
+              context.filteredItems?.map((item)=>(
+              <Card key={item.id} data={item}>        
+              </Card>
+            ))
+          )
+      }else if(context.filteredItems?.length==0){
+          return(
+          <div>We don't have anything </div>
+          )
+      
+  
+}else{
+      return(
+        context.items?.map((item)=>(
         <Card key={item.id} data={item}>        
         </Card>
-      ))
-          )
-          
-          }
+        ))
+      )
+}
+
   }
 
   return (
