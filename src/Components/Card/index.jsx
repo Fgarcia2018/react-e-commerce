@@ -9,8 +9,7 @@ const Card=(data)=>{
         context.setProductToShow(ProductDeatail);
     }
     const addProductToCart=(event,productData)=>{
-        event.stopPropagation();
-        context.setCounter(context.counter+1);
+        event.stopPropagation();        
         context.setCartProducts([...context.cartProducts,productData])
      
     }

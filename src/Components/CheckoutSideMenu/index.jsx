@@ -7,9 +7,9 @@ import { totalPrice } from '../../utils';
 const CheckoutSideMenu=()=>{
     const context=useContext(ShoppingCartContext)   
     const handleDelete=(id)=>{
+        
         const filteredProducts=context.cartProducts.filter(product=>product.id!=id);
-        context.setCartProducts(filteredProducts);
-        context.setCounter(context.counter-1);
+        context.setCartProducts(filteredProducts);  
     }
     const handleCheckout=()=>{
         const orderToAdd={
@@ -19,8 +19,7 @@ const CheckoutSideMenu=()=>{
             totalPrice:totalPrice(context.cartProducts)
         }
         context.setOrder([...context.order,orderToAdd])
-        context.setCartProducts([])
-        context.setCounter(0);
+        context.setCartProducts([])        
     }
        
     return(
@@ -30,7 +29,7 @@ const CheckoutSideMenu=()=>{
                 <div className="absolute right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1 cursor-pointer" onClick={()=>context.closeProductDetail()}>
                     <img src='../../assets/closeIcon.svg' onClick={()=>{context.closeCheckoutMenu()}}/></div>
             </div>
-            <div className='py-6  overflow-y-scroll overflow-x-hidden flex-1'>          
+            <div className='py-6 px-2 overflow-y-scroll overflow-x-hidden flex-1'>          
                 {
                     context.cartProducts.map((product)=>(
                         <OrderCard 
@@ -41,7 +40,7 @@ const CheckoutSideMenu=()=>{
                             price={product.price}
                             handleDelete={handleDelete}
                             >
-                        </OrderCard>
+                        </OrderCard>    
                     ))
                 }  
             </div>  
